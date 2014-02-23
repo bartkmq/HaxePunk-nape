@@ -1,0 +1,11 @@
+{
+	"name": "HaxePunk-nape",
+	"url" : "http://haxepunk.com",
+	"license": "MIT",
+	"tags": ["flash", "game", "cpp", "openfl", "haxepunk", "nape"],
+	"description": "Nape integration for HaxePunk.",
+	"version": "1.0.0",
+	"releasenote": "First Version",
+	"contributors": ["heardtheword", "ibilon"],
+	"dependencies": { "HaxePunk": "", "nape": "" }
+}
