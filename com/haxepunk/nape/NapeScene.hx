@@ -2,11 +2,13 @@ package com.haxepunk.nape;
 
 import com.haxepunk.HXP;
 import com.haxepunk.Scene;
+import flash.events.Event;
 
 import nape.geom.Vec2;
 import nape.space.Space;
 import nape.util.Debug;
 import nape.util.ShapeDebug;
+import nape.geom.Mat23;
 
 import flash.geom.Point;
 
@@ -101,6 +103,14 @@ class NapeScene extends Scene
 		debugDraw = false;
 	}
 	
+	private function onResize(e:Event)
+	{
+		_debug.display.x = HXP.camera.x;
+		_debug.display.y = HXP.camera.y;
+		_debug.display.scaleX = HXP.screen.scaleX * HXP.screen.scale;
+		_debug.display.scaleY = HXP.screen.scaleY * HXP.screen.scale;
+	}
+	
 	private function get_debugDraw():Bool
 	{
 		return _debug != null;
@@ -111,11 +121,14 @@ class NapeScene extends Scene
 		if (value && _debug == null)
 		{
 			_debug = new ShapeDebug(HXP.width, HXP.height, HXP.stage.color);
+			_debug.display.scrollRect = null;
 			HXP.stage.addChild(_debug.display);
+			HXP.stage.addEventListener(Event.RESIZE, onResize);
 		}
 		// remove debug display if set to false and debug display exists
 		else if (!value && _debug != null)
 		{
+			HXP.stage.removeEventListener(Event.RESIZE, onResize);
 			HXP.stage.removeChild(_debug.display);
 			_debug = null;
 		}
