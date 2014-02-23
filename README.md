@@ -1,5 +1,5 @@
 #HaxePunk-nape
-This is a library makes it easier to use Nape together with Haxepunk.
+This is a library that makes it easier to use Nape together with Haxepunk.
 
 ##Requirements
 * **Haxepunk**
