@@ -124,7 +124,7 @@ class NapeEntity extends Entity
 	private function set_physics(value:Bool):Bool
 	{
 		if (value)
-			if (Std.is(scene, NapeScene)
+			if (Std.is(scene, NapeScene))
 				body.space = cast(scene, NapeScene).space;
 		else
 			body.space = null;
