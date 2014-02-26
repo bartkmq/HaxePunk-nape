@@ -4,8 +4,8 @@
 	"license": "MIT",
 	"tags": ["flash", "game", "cpp", "openfl", "haxepunk", "nape"],
 	"description": "Nape integration for HaxePunk.",
-	"version": "1.0.0",
-	"releasenote": "First Version",
+	"version": "1.0.1",
+	"releasenote": "Resize and scaling support",
 	"contributors": ["Marc010"],
 	"dependencies": { "HaxePunk": "", "nape": "" }
 }

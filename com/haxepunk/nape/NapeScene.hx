@@ -38,6 +38,12 @@ class NapeScene extends Scene
 	 * If nape debug drawing should be used.
 	 */
 	public var debugDraw(get, set):Bool;
+	
+	/**
+	 * If nape debug drawing should be automatically used
+	 * when the debug Console is visible.
+	 */
+	public var autoDebugDraw:Bool;
 
 	/**
 	 * Constructor. Can be used to set the gravity of the Scene's Space.
@@ -55,6 +61,7 @@ class NapeScene extends Scene
 		this.positionIterations = positionIterations;
 				
 		debugDraw = false;
+		autoDebugDraw = true;
 	}
 	
 	/**
@@ -67,6 +74,14 @@ class NapeScene extends Scene
 		super.update();
 		
 		space.step(HXP.elapsed, velocityIterations, positionIterations);
+	}
+	
+	override public function render()
+	{
+		super.render();
+		
+		if (autoDebugDraw)
+			debugDraw = HXP.console.paused;
 		
 		if (_debug != null)
 		{

@@ -6,7 +6,6 @@ import com.haxepunk.HXP;
 import com.haxepunk.masks.Circle;
 import com.haxepunk.masks.Hitbox;
 import com.haxepunk.masks.Masklist;
-import com.haxepunk.nape.NapeEntity.NapePolygon;
 
 import nape.geom.Vec2;
 import nape.phys.Body;
@@ -27,12 +26,17 @@ class NapeEntity extends Entity
 	 */
 	public var body:Body;
 	/**
-	 * Angle of the Entity's Body in Haxepunk format (counter-clockwise degrees.
+	 * Angle of the Entity's Body in Haxepunk format (counter-clockwise degrees).
 	 */
 	public var angle(get, set):Float;
 	
 	/**
-	 * Constructor. Can be used to place the Entity and assign a graphic and mask.
+	 * If the body's physics are simulated.
+	 */
+	public var physics(get, set):Bool;
+	
+	/**
+	 * Constructor. Can be used to place the Entity and assign a graphic, mask and bodytype.
 	 * @param	x			X position to place the Entity.
 	 * @param	y			Y position to place the Entity.
 	 * @param	graphic		Graphic to assign to the Entity.
@@ -114,5 +118,16 @@ class NapeEntity extends Entity
 	}
 	
 	private function get_angle():Float { return body.rotation * HXP.DEG; }
-	private function set_angle(value:Float){ return body.rotation = value * HXP.RAD; }
+	private function set_angle(value:Float) { return body.rotation = value * HXP.RAD; }
+	
+	private function get_physics():Bool { return body.space != null; }
+	private function set_physics(value:Bool):Bool
+	{
+		if (value)
+			if (Std.is(scene, NapeScene)
+				body.space = cast(scene, NapeScene).space;
+		else
+			body.space = null;
+		return value;
+	}
 }

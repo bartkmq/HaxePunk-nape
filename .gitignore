@@ -1,0 +1,15 @@
+# Build Folders
+out/
+bin/
+
+# Unit Tests
+test/
+tests/
+unit/
+
+# FlashDevelop files
+*.hxproj
+application.xml
+
+# Debug files
+assets/
