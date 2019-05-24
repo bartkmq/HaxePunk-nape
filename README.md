@@ -1,11 +1,11 @@
-#HaxePunk-nape
+# HaxePunk-nape
 This is a library that makes it easier to use Nape together with Haxepunk.
 
-##Requirements
+## Requirements
 * **Haxepunk**
 * **Nape**
 
-##Contents
+## Contents
 * **NapeScene**
   * addNapeEntity(): Adds a new NapeEntity to the scene.
   * debugDraw: If true use nape's debug draw functionality
